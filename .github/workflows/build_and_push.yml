@@ -33,6 +33,4 @@ jobs:
           file: ./Dockerfile
           platforms: linux/arm/v7
           push: true
-          tags: |
-          tobsa/vlmcsd:latest
-          tobsa/vlmcsd:${{ steps.get-sha.sha }}
+          tags: tobsa/vlmcsd:latest,tobsa/vlmcsd:${{ steps.get-sha.sha }}
