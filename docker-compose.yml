@@ -1,0 +1,9 @@
+version: "3.7"
+services:
+
+  vlmcsd:
+    container_name: vlmcsd
+    image: tobsa/vlmcsd
+    ports:
+      - "1688:1688"
+    restart: always
