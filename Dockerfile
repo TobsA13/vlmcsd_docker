@@ -1,6 +1,6 @@
 FROM alpine:latest as builder
 WORKDIR /root
-RUN apk add --no-cache git make build-base && \
+RUN apk add --no-cache git make g++ && \
     git clone --branch master --single-branch https://github.com/Wind4/vlmcsd.git && \
     cd vlmcsd/ && \
     make vlmcsd
