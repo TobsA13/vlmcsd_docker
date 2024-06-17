@@ -9,11 +9,15 @@ on:
 
 env:
   REGISTRY: ghcr.io
-  
+  IMAGE_NAME: ${{ github.repository }}
+
 jobs:
-  path-context:
-    name: Build and push
+  # define job to build and publish docker image
+  build-and-push-docker-image:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -39,7 +43,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@v3
         with:
-          images: ${{ env.REGISTRY }}/vlmcsd
+          images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
 
       - name: Build image and push to Docker Hub and GitHub Container Registry
         id: build
